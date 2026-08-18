@@ -1,0 +1,26 @@
+# Archivos compilados Arduino / ESP32
+*.hex
+*.bin
+*.elf
+*.map
+
+# Builds
+build/
+.build/
+.vscode/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos temporales
+*.tmp
+*.temp
+*.bak
+*.log
+
+# IDE
+.idea/
+
+# Credenciales WiFi privadas
+secrets.h
