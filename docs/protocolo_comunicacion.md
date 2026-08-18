@@ -306,3 +306,52 @@ Se implementó el protocolo de comunicación Serial entre PC y ESP32.
 
 
 Comunicación Serial validada correctamente.
+
+
+## Comunicación WiFi/TCP
+
+El firmware también permite controlar la impresora mediante WiFi.
+
+### Configuración
+
+- Modo WiFi: Station.
+- Protocolo: TCP.
+- Puerto: 3333.
+
+La dirección IP es asignada por el router y puede cambiar.
+
+Durante las pruebas iniciales se utilizó:
+
+```text
+192.168.0.29
+
+
+----------------
+
+Protocolo
+
+Los mismos comandos utilizados por USB Serial pueden enviarse mediante TCP:
+
+PING
+STATUS
+HELP
+MOVE X pasos velocidad
+MOVE Y pasos velocidad
+PUNCH
+STOP
+
+Esto permite utilizar un único protocolo independientemente del medio de comunicación.
+
+
+
+Importante: esa IP `192.168.0.29` la documentamos como **IP observada durante la prueba**, no como dirección fija definitiva.
+
+
+## PARTE 16.15 — GitHub
+
+
+Ahora abre Git Bash o CMD dentro de:
+
+
+```text
+C:\Users\F4b1a\OneDrive\Documents\documentacion_2026_Braille\Proyect

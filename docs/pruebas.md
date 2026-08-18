@@ -126,3 +126,181 @@ Se verificó:
 - Funcionamiento conjunto de los tres sistemas.
 
 La siguiente etapa será implementar la comunicación Serial entre la computadora y el ESP32.
+
+
+-------------------------------------------------
+
+---
+
+# V3 - Pruebas de Comunicación WiFi
+
+## Conexión WiFi
+
+El ESP32 se conectó correctamente a la red WiFi configurada.
+
+Durante las pruebas obtuvo la dirección:
+
+```text
+192.168.0.29
+
+------------------------------
+
+Servidor TCP
+
+Se implementó un servidor TCP en el ESP32.
+
+Puerto utilizado:
+
+3333
+
+La computadora logró conectarse correctamente al ESP32.
+
+Estado: APROBADO.
+
+-------------------------------
+
+Prueba PING por WiFi
+
+Comando:
+
+PING
+
+Respuesta:
+
+PONG
+
+Estado: APROBADO.
+
+-------------------------------
+
+Prueba STATUS por WiFi
+
+El comando STATUS devuelve correctamente información del sistema.
+
+Ejemplo:
+
+========== STATUS ==========
+STATE: READY
+X: ENABLED
+Y: ENABLED
+SOLENOID: READY
+WIFI: CONNECTED
+TCP: CONNECTED
+SERIAL: OK
+============================
+
+Estado: APROBADO.
+
+--------------------------------------
+
+Prueba MOVE X por WiFi
+
+Se probaron movimientos positivos y negativos.
+
+Ejemplos:
+
+MOVE X 100 100
+MOVE X -100 100
+
+Resultado:
+
+El eje X responde correctamente mediante comandos TCP.
+
+Estado: APROBADO.
+
+----------------------------------------
+Prueba MOVE Y por WiFi
+
+Se probaron movimientos positivos y negativos.
+
+Ejemplos:
+
+MOVE Y 100 100
+MOVE Y -100 100
+
+Resultado:
+
+El eje Y responde correctamente mediante comandos TCP.
+
+Estado: APROBADO.
+
+-------------------------------------------
+Prueba PUNCH por WiFi
+
+Comando:
+
+PUNCH
+
+Resultado:
+
+El solenoide se activa correctamente mediante comunicación WiFi/TCP.
+
+Estado: APROBADO.
+-------------------------------------------
+
+Prueba STOP por WiFi
+
+Se inició un movimiento:
+
+MOVE X 300 50
+
+Durante el movimiento se envió:
+
+STOP
+
+Resultado:
+
+El movimiento fue interrumpido correctamente.
+
+El sistema pasó a:
+
+STATE: STOPPED
+
+Posteriormente se realizó un nuevo movimiento y el sistema regresó a:
+
+STATE: READY
+
+Estado: APROBADO.
+
+----------------------------------------------------
+
+Comunicación dual
+
+Se comprobó que el ESP32 puede recibir comandos mediante:
+
+USB Serial.
+WiFi TCP.
+
+Ambas interfaces utilizan el mismo procesador de comandos.
+
+Comandos disponibles:
+
+PING.
+STATUS.
+HELP.
+MOVE X.
+MOVE Y.
+PUNCH.
+STOP.
+
+Estado: APROBADO.
+
+-------------------------------------------------------
+
+Conclusión V3
+
+La comunicación WiFi/TCP funciona correctamente.
+
+El ESP32 puede ser controlado tanto por USB Serial como por WiFi utilizando el mismo protocolo de comandos.
+
+La etapa V3 queda aprobada.
+
+
+
+Guarda con:
+
+
+```text
+Ctrl + S
+
+----------------------------------------------------------
